@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机学号抽取</title>
+    <style>
+        body {
+            font-family: "楷体", serif;
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 64px; /* 增加后的字号 */
+            font-weight: bold;
+        }
+        #result {
+            font-size: 128px; /* 增加后的数字字号 */
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 32px; /* 增加后的按钮字号 */
+        }
+        input {
+            font-size: 32px; /* 增大后的输入框字号 */
+            padding: 10px; /* 增大输入框内边距 */
+            width: 200px; /* 设置输入框宽度 */
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px; /* 缩小后的底部文字字号 */
+        }
+    </style>
+</head>
+<body>
+    <h1>随机学号抽取</h1>
+    <input type="number" id="min" placeholder="输入最小值" />
+    <input type="number" id="max" placeholder="输入最大值" />
+    <button onclick="抽取()">抽取</button>
+    <div id="result"></div>
+    <div class="footer">made by qla</div>
+
+    <script>
+        function 抽取() {
+            const min = parseInt(document.getElementById("min").value);
+            const max = parseInt(document.getElementById("max").value);
+
+            if (!isNaN(min) && !isNaN(max) && min < max) {
+                const 随机数 = Math.floor(Math.random() * (max - min + 1)) + min;
+                document.getElementById("result").innerText = 随机数;
+            } else {
+                alert("请输入有效的数字范围！");
+            }
+        }
+    </script>
+</body>
+</html>
